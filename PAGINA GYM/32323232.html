@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUTINAS | Gym REP ZERO</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="FONTS/Font/CarterOne-Regular.ttf">
+    <link rel="stylesheet" href="FONTS/Font/Inter-Light.ttf">
+</head>
+<body>
+    <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #111;
+  }
+.card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.1s ease;
+  }
+</style>
+<div class="card">
+  <img src="IMG/CHSM.jpg" alt="imagen">
+</div>
+
+<script>
+  const card = document.querySelector(".card");
+  const img = card.querySelector("img");
+
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+
+    img.style.transform = `
+      scale(1.1)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+    `;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    img.style.transform = "scale(1) rotateX(0) rotateY(0)";
+  });
+</script>
+</body>
+</html>
