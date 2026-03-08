@@ -788,7 +788,7 @@ nav img:hover{
 
 .container5{
     position: relative;
-    height: 305vh;
+    height: 320vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -988,7 +988,7 @@ aside:hover {
 .container-directory{
     height: 100%;
     width: 100%;
-    padding-top: 5%
+    padding-top: 15%
     padding-bottom: 0%;
     position: absolute;
     overflow: hidden;
@@ -2057,4 +2057,5 @@ aside:hover {
     color: #e6e6e6;
     padding-top: 2%;
 }
+
 
