@@ -988,7 +988,8 @@ aside:hover {
 .container-directory{
     height: 100%;
     width: 100%;
-    padding-bottom: 3%;
+    padding-top: 5%
+    padding-bottom: 0%;
     position: absolute;
     overflow: hidden;
     display: inherit;
@@ -2056,3 +2057,4 @@ aside:hover {
     color: #e6e6e6;
     padding-top: 2%;
 }
+
