@@ -1359,7 +1359,7 @@ aside:hover {
     padding: 15%;
     font-size: 1.8rem;
     transform: translate(-50%, -50%);
-    color: #090909;
+    color: #ccc120;
     background-color:  yellow;
     border: 1px solid #ffff56;
     transition: all ease-in-out 350ms;
@@ -2284,6 +2284,7 @@ aside:hover {
     color: #e6e6e6;
     padding-top: 2%;
 }
+
 
 
 
