@@ -1378,6 +1378,16 @@ aside:hover {
     z-index: 99;
 }
 
+.column66 a{
+    padding-left: 42%;
+    align-items: center;
+}
+
+.column66 b{
+    padding-left: 30%;
+    align-items: center;
+}
+
 .container6COACH .arrow-down:hover{
     border: 1px solid #ffff56;;
     background-color: #090909;
