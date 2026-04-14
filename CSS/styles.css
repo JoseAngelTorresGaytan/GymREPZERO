@@ -14,6 +14,7 @@
     box-sizing: border-box;
 }
 
+
 a {
     text-decoration: none;
     cursor: pointer;
@@ -25,7 +26,10 @@ a {
 html {
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
+    overflow-x: hidden !important; /* Evita la barra horizontal */
+    overflow-y: auto !important;   /* Asegura que puedas bajar con el dedo */
 }
+
 
 img {
     max-width: 100%;
@@ -35,9 +39,805 @@ li{
     list-style-type: none;
 }
 
-@media (max-width: 440px) {
-    html{
-        font-size: 18px;
+/* =======================================================
+   NUEVO RESPONSIVE REVISADO PARA ARREGLAR EL CAOS
+   ======================================================= */
+
+/* MÓVILES GRANDES / TABLETS PEQUEÑAS (Hasta 768px) */
+@media (max-width: 768px) {
+    
+    /* === 1. ARREGLO DEL CONTENEDOR PRINCIPAL (El del logo) === */
+    .container1 {
+        height: 500px; /* IMPORTANTE: Deja de tener altura fija */
+        position: relative;
+        flex-direction: column; /* Apila logo y botón */
+        justify-content: space-around; /* Espacia los elementos */
+        position: relative;
+        width: 100%;
+        overflow: hidden; /* Esto corta cualquier cosa que intente salirse */
+    }
+
+     .container1 .arrow-down {
+        display: none;
+    }
+
+    .title {
+        position: static; /* Quita el absolute */
+        height: auto;
+        width: 100%;
+        margin-bottom: 20px;
+        padding-top: 0;
+    }
+
+    /* El logo 'REP ZERO' */
+    .title img {
+        max-height: 400px;
+        max-width: 100%; /* Reduce mucho el tamaño del logo */
+        margin-top: 35%;
+    }
+
+    /* Texto '¡Comienza a navegar!' */
+    .title p {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    /* El botón amarillo */
+    .container1 .arrow-down {
+        display: none;
+    }
+
+    /* El video de fondo */
+    #background-video-principal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* Cubre el fondo del container1 */
+        object-fit: cover; /* Ajusta el video para que no se deforme */
+        z-index: 0;
+    }
+
+    /* === 2. ARREGLO DEL CONTENEDOR 2 (El de la rutina de HIIT) === */
+    .container2 {
+        display: flex;
+        flex-direction: column;
+        height: auto !important; /* Forzamos que crezca con el contenido */
+        min-height: auto !important;
+    }
+
+    .anime-title {
+        width: 100% !important;
+        position: relative !important;
+        display: block !important;
+        height: auto !important;
+        padding: 20px !important;
+        box-shadow: none !important;
+    }
+
+    /* EL TÍTULO GRANDE */
+    .anime-title h1 {
+        position: relative !important;
+        font-size: 1.8rem !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+        top: 0 !important;
+        word-wrap: break-word; /* Rompe la palabra si es demasiado larga */
+            font-size: 1.5rem !important; /* Ajusta el tamaño para que no se salga */
+
+    }
+
+
+    /* EL TEXTO "CARDIO: TABATA" O SIMILARES */
+    .title-sinopsis {
+        position: relative !important;
+        margin: 10px 0 !important;
+        text-align: center !important;
+    }
+
+    /* LIMPIEZA DE SINOPSIS Y PÁRRAFOS */
+    .sinopsis {
+        height: auto !important;
+        margin-top: 0 !important;
+        display: block !important;
+    }
+
+    .sinopsis p {
+        position: relative !important;
+        margin-top: 15px !important; /* Espacio entre párrafos */
+        padding: 0 10px !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        text-align: left !important;
+    }
+
+    /* BOTÓN "VISITA SU CANAL" */
+    .button-title {
+        margin-top: 30px !important;
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    .button-title button {
+        position: relative !important;
+        width: 80% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+        padding: 15px !important;
+        display: block !important;
+    }
+}
+
+/* === AJUSTE FINAL CONTENEDOR 4 (TARJETAS) === */
+@media (max-width: 768px) {
+     .container1 .arrow-down {
+        display: none;
+    }
+    
+    .container-most-popular-animes {
+        position: relative;
+        height: auto !important;
+        display: block !important; /* Cambiamos de flex a block para controlar el hijo */
+        padding: 60px 10px !important;
+        margin: 0 !important;
+    }
+
+    .container-most-popular-animes h2:nth-child(1) {
+        position: relative !important;
+        font-size: 1.5rem !important;
+        padding: 0 0 10px 10px !important;
+        text-align: left;
+    }
+
+    /* La lista que contiene las tarjetas */
+    .container-most-popular-animes ul, 
+    .container-most-popular-animes .row { 
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 COLUMNAS */
+        gap: 10px !important;
+        width: 100% !important;
+        padding: 5px !important;
+        box-sizing: border-box;
+    }
+
+    .container-most-popular-animes li {
+        width: 353px !important; /* Que ocupen su celda del grid */
+        height: 470px !important; /* Altura fija para que sean rectangulares */
+        position: relative !important;
+        margin: 0 !important;
+        border: 1px solid #ffff56 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Ajuste de las imágenes dentro de las tarjetas */
+    .container-most-popular-animes img {
+        height: 75% !important; /* La imagen ocupa la parte de arriba */
+        object-fit: cover !important;
+    }
+
+    /* El área de texto (Negra) */
+    .popular-anime-info {
+        position: relative !important;
+        height: 8% !important;
+        background-color: black !important;
+        color: white !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 5px !important;
+        opacity: 1 !important; /* Que se vea siempre en móvil */
+    }
+
+    /* Reducción radical del texto amontonado */
+    .popular-anime-info h3 {
+        font-size: 0.8rem !important; /* Texto pequeño para que quepa */
+        margin: 0 !important;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    .popular-anime-info h4, 
+    .popular-anime-info h5, 
+    .popular-anime-info p {
+        display: none !important; /* Ocultamos lo extra en móvil para que no se amontone */
+    }
+}
+
+/* === AJUSTE FINAL FOOTER CENTRADO (MÓVIL) === */
+@media (max-width: 768px) {
+    footer {
+        height: auto !important;
+        width: 100% !important;
+        padding: 40px 0 !important; /* Eliminamos padding lateral para control total */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centra los hijos horizontalmente */
+        text-align: center !important;
+        gap: 25px !important;
+        background-color: #1a1a1a; /* O el color de fondo de tu sitio */
+    }
+
+    /* Contenedores de columnas al 100% y centrados */
+    footer .column33, 
+    footer .column50, 
+    footer .column100 {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; 
+        justify-content: center !important;
+        padding: 0 20px !important; /* Padding interno para que el texto no toque los bordes */
+        box-sizing: border-box !important;
+    }
+
+    /* Mapa centrado y responsivo */
+    footer .map-container,
+    footer iframe { 
+        width: 90% !important; /* Ocupa casi todo el ancho del móvil */
+        max-width: 350px !important; /* Evita que sea gigante en tablets pequeñas */
+        height: 200px !important;
+        border-radius: 12px !important;
+        margin: 0 auto !important;
+        border: none !important;
+    }
+
+    /* Iconos sociales en fila pero centrados */
+    footer .social-media {
+        display: flex !important;
+        flex-direction: row !important; /* Los iconos se mantienen de lado a lado */
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 20px !important;
+        width: 100% !important;
+        margin: 10px 0 !important;
+    }
+
+    footer .social-media img, 
+    footer img.social-media {
+        height: 30px !important;
+        width: auto !important;
+    }
+
+    /* Links legales (Aviso legal, Cookies) */
+    footer .terms {
+        display: flex !important;
+        flex-direction: column !important; /* En móvil, uno arriba de otro es más fácil de clickear */
+        align-items: center !important;
+        gap: 12px !important;
+        margin-top: 10px !important;
+    }
+
+    footer .terms a {
+        font-size: 0.9rem !important;
+        text-decoration: none !important;
+        color: #fff !important;
+    }
+
+    /* Texto de Copyright */
+    footer p.copyright {
+        width: 90% !important;
+        margin-top: 15px !important;
+        font-size: 0.75rem !important;
+        color: #888 !important;
+        line-height: 1.4 !important;
+    }
+}
+
+/*********************************************************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* --- CONTENEDOR 1: RECUPERAR VIDEO --- */
+    .container1 {
+        position: relative !important;
+        height: 60vh !important;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: black;
+    }
+
+     .container1 .arrow-down {
+        display: none;
+    }
+
+    /* Asegura que el video de fondo se vea y ocupe todo */
+    #background-video-principal {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        z-index: 1; /* Al fondo */
+    }
+
+    .title {
+        position: relative !important;
+        z-index: 2; /* Por encima del video */
+        text-align: center;
+    }
+
+    .title img {
+        width: 820px !important;
+        height: auto;
+    }
+
+    /* --- CONTENEDOR 2: SEPARAR TEXTO Y VIDEO --- */
+      /* --- CORRECCIÓN PARA EL CONTENEDOR 2 EN TABLET --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .anime-title {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        height: auto !important; /* Permite que el contenedor crezca */
+        padding-bottom: 40px !important; /* Espacio extra al final */
+    }
+
+    .sinopsis {
+        height: auto !important; /* ¡ESTA ES LA CLAVE! Quita los 200px */
+        margin-bottom: 20px !important; /* Empuja el botón hacia abajo */
+        display: block !important;
+        overflow: visible !important; /* Asegura que nada se corte */
+    }
+
+    .sinopsis p {
+        position: relative !important;
+        margin-bottom: 15px !important;
+        line-height: 1.5 !important;
+    }
+
+    /* El botón ahora bajará solo porque la sinopsis ya no tiene altura fija */
+    .button-title {
+        width: 100%;
+        position: relative !important;
+        display: block !important;
+        clear: both; /* Evita que cosas flotantes lo tapen */
+    }
+
+    .button-title button {
+        width: 700px;
+        position: relative !important;
+        z-index: 10 !important; /* Lo trae al frente si algo lo tapaba */
+    }
+}
+    .container2 {
+        display: flex !important;
+        flex-direction: row !important;
+        height: auto !important;
+        min-height: 550px !important;
+        background: #000;
+        align-items: center !important;
+    }
+
+    .anime-title {
+        width: 45% !important; /* Un poco menos de la mitad para dar aire */
+        padding: 40px !important;
+        position: relative !important;
+    }
+
+    .anime-title h1 {
+        font-size: 2.2rem !important; /* Tamaño controlado */
+        margin-bottom: 15px !important;
+    }
+
+    /* Ajuste para el video de YouTube (Trailer) */
+    .trailer-poster {
+        width: 55% !important; /* Un poco más de la mitad */
+        height: 350px !important; /* Altura fija para que no se vea pequeño */
+        position: relative !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .trailer-poster iframe {
+        width: 90% !important; /* Que no choque con los bordes */
+        height: 90% !important;
+        border-radius: 10px;
+    }
+
+    /* --- CONTENEDOR 4: IMAGEN DE FONDO AMARILLA --- */
+    .container-most-popular-animes {
+        padding: 60px 20px !important;
+    }
+
+    .container-most-popular-animes ul {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* 2 columnas */
+        gap: 20px !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .container-most-popular-animes {
+        position: relative;
+        height: auto !important;
+        display: block !important; /* Cambiamos de flex a block para controlar el hijo */
+        padding: 60px 10px !important;
+        margin: 0 !important;
+    }
+
+    .container-most-popular-animes h2:nth-child(1) {
+        position: relative !important;
+        font-size: 1.5rem !important;
+        padding: 0 0 10px 10px !important;
+        text-align: left;
+    }
+
+    /* La lista que contiene las tarjetas */
+    .container-most-popular-animes ul, 
+    .container-most-popular-animes .row { 
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 COLUMNAS */
+        gap: 10px !important;
+        width: 100% !important;
+        padding: 5px !important;
+        box-sizing: border-box;
+    }
+
+    .container-most-popular-animes li {
+        width: 390px !important; /* Que ocupen su celda del grid */
+        height: 440px !important; /* Altura fija para que sean rectangulares */
+        position: relative !important;
+        margin: 0 !important;
+        border: 1px solid #ffff56 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Ajuste de las imágenes dentro de las tarjetas */
+    .container-most-popular-animes img {
+        height: 75% !important; /* La imagen ocupa la parte de arriba */
+        object-fit: cover !important;
+    }
+
+    /* El área de texto (Negra) */
+    .popular-anime-info {
+        position: relative !important;
+        height: 1% !important;
+        background-color: black !important;
+        color: white !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 5px !important;
+        opacity: 1 !important; /* Que se vea siempre en móvil */
+    }
+
+    /* Reducción radical del texto amontonado */
+    .popular-anime-info h3 {
+        font-size: 0.8rem !important; /* Texto pequeño para que quepa */
+        margin: 0 !important;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    .popular-anime-info h4, 
+    .popular-anime-info h5, 
+    .popular-anime-info p {
+        display: none !important; /* Ocultamos lo extra en móvil para que no se amontone */
+    }
+}
+
+/* --- FOOTER PARA TABLET (Distribución balanceada) --- */
+    footer {
+        height: auto !important;
+        padding: 50px 30px !important;
+        display: flex !important;
+        flex-wrap: wrap !important; /* Permite que las columnas bajen si es necesario */
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 40px !important;
+    }
+
+    /* Las columnas ocuparán el 45% para que queden 2 arriba y el resto fluya */
+    footer .column33 {
+        width: 45% !important; 
+        text-align: left !important;
+    }
+
+    /* El mapa lo hacemos destacar en su propia fila o lo ajustamos */
+    footer .map-container, 
+    footer iframe {
+        width: 100% !important;
+        height: 250px !important;
+        border-radius: 15px !important;
+    }
+
+    /* Redes sociales centradas o alineadas */
+    footer .social-media {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 20px !important;
+    }
+
+    /************************************************************RUTINAS******************************************************/
+/* === AJUSTE SECCIÓN RUTINAS (CONTAINER 8) === */
+@media (max-width: 768px) {
+    /* === CORRECCIÓN DE ESPACIOS KILOMÉTRICOS === */
+    /* 1. Resetear los contenedores gigantes */
+    .container8, 
+    .container8dos {
+        height: auto !important; /* Ya no mide 5 pantallas, solo lo que necesite */
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+        overflow: visible !important;
+    }
+    /* 1. Evitamos que el contenedor obligue a estirar el contenido */
+    .title-poster {
+        position: relative !important; /* Para que ocupe su espacio real */
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        top: auto !important;
+        left: auto !important;
+    }
+    .anime-caps-container {
+        position: relative !important; /* Cambiamos de absolute a relative */
+        height: auto !important;       /* De 270vh a automático */
+        min-height: auto !important;
+        padding-bottom: 40px !important; /* Un espacio moderado abajo */
+        box-shadow: none !important;     /* Quitamos sombras gigantes que crean manchas negras */
+        margin-top: 0 !important;
+    }
+    /* 2. Ajustamos el bloque de texto para que no ocupe espacio de más */
+    .title-anime-watch {
+        width: 100% !important;
+        padding: 20px !important;
+        text-align: center !important;
+    }
+
+    /* 3. ¡SOLUCIÓN IMAGEN ESTIRADA! */
+    .anime-image {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .anime-image img[src*="PECHOcasa"] {
+        display: none;
+    }
+
+    /* 4. Reducimos los espacios del texto */
+    .title2 h3 {
+        font-size: 1rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .sinopsis-anime p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+/* 4. Ajustar el bloque de texto e imagen para que no tengan alturas fijas */
+    .title-anime-watch {
+        width: 100% !important;
+        height: auto !important;
+        box-shadow: none !important;
+    }
+
+    .anime-image {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .anime-image img {
+        height: auto !important; /* Evita que Pechocasa se estire */
+        max-height: 400px;
+    }
+
+    /* 5. Las filas de ejercicios */
+    .row4-caps {
+        height: auto !important;
+        flex-direction: column !important; /* Los ejercicios uno debajo de otro */
+        padding-bottom: 20px !important;
+    }
+
+    .row4-caps li, 
+    .row4-caps img {
+        width: 90% !important; /* Casi todo el ancho del móvil */
+        height: auto !important;
+        margin: 10px auto !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+    /* === CORRECCIÓN DE ESPACIOS KILOMÉTRICOS === */
+    /* 1. Resetear los contenedores gigantes */
+    .container8, 
+    .container8dos {
+        height: auto !important; /* Ya no mide 5 pantallas, solo lo que necesite */
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+        overflow: visible !important;
+    }
+    /* 1. Evitamos que el contenedor obligue a estirar el contenido */
+    .title-poster {
+        position: relative !important; /* Para que ocupe su espacio real */
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        top: auto !important;
+        left: auto !important;
+    }
+    .anime-caps-container {
+        position: relative !important; /* Cambiamos de absolute a relative */
+        height: auto !important;       /* De 270vh a automático */
+        min-height: auto !important;
+        padding-bottom: 40px !important; /* Un espacio moderado abajo */
+        box-shadow: none !important;     /* Quitamos sombras gigantes que crean manchas negras */
+        margin-top: 0 !important;
+    }
+    /* 2. Ajustamos el bloque de texto para que no ocupe espacio de más */
+    .title-anime-watch {
+        width: 100% !important;
+        padding: 20px !important;
+        text-align: center !important;
+    }
+
+    /* 3. ¡SOLUCIÓN IMAGEN ESTIRADA! */
+    .anime-image {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .anime-image img[src*="PECHOcasa"] {
+      display: none;
+    }
+
+    /* 4. Reducimos los espacios del texto */
+    .title2 h3 {
+        font-size: 1rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .sinopsis-anime p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+/* 4. Ajustar el bloque de texto e imagen para que no tengan alturas fijas */
+    .title-anime-watch {
+        width: 100% !important;
+        height: auto !important;
+        box-shadow: none !important;
+    }
+
+    .anime-image {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .anime-image img {
+        height: auto !important; /* Evita que Pechocasa se estire */
+        max-height: 400px;
+    }
+
+    /* 5. Las filas de ejercicios */
+    .row4-caps {
+        height: auto !important;
+        flex-direction: column !important; /* Los ejercicios uno debajo de otro */
+        padding-bottom: 20px !important;
+    }
+
+    .row4-caps li, 
+    .row4-caps img {
+        width: 90% !important; /* Casi todo el ancho del móvil */
+        height: auto !important;
+        margin: 10px auto !important;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1400px; /* Evita que la web se estire más de esto */
+    margin: 0 auto;    /* Centra todo el bloque en pantallas gigantes */
+    position: relative;
+}
+
+/* === CORRECCIÓN MAESTRA PARA COACH VIRTUAL === */
+@media (max-width: 1024px) {
+
+    /* 1. Quitamos las alturas fijas (vh) para que el contenido no se corte */
+    .container6COACH, 
+    .container7coaches, 
+    .container8coaches, 
+    .container9coaches {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 50px 0 !important;
+        overflow: visible !important;
+    }
+
+    .coachvirtual-cont, 
+    .containerduda, 
+    .containerbeneficios, 
+    .containernuestros {
+        flex-direction: column !important; /* Todo hacia abajo */
+        height: auto !important;
+    }
+
+    /* 2. Limpieza de BOTONES (Quitamos el transform y los anchos de 250%) */
+    .buttonscoachbackground {
+        padding: 20px !important;
+        height: auto !important;
+    }
+
+    .container6COACH .arrow-down, 
+    .container6COACH .arrow-down2 {
+        width: 100% !important;   /* Ocupa el ancho de su columna */
+        height: auto !important;
+        transform: none !important; /* ELIMINAMOS EL TRANSLATE que los movía de lugar */
+        position: relative !important;
+        margin: 10px 0 !important;
+        left: 0 !important;
+        top: 0 !important;
+        font-size: 1.1rem !important;
+        padding: 15px !important;
+    }
+
+    /* 3. Ajuste de los COACHES (Imagen de fondo y PNGs) */
+    .fondocoach {
+        display: none;
+    }
+
+    .fondocoach img {
+        display: none;    
+    }
+
+    .coachesimg {
+        display: none;
+    }
+
+    .coachesimg img {
+        height: 100% !important; /* Se ajustan al contenedor de 300px */
+        width: auto !important;
+    }
+
+    .coachesimg img:nth-child(2) {
+        display: none;
+    }
+
+    /* 4. Imágenes de las secciones (ChatGPT e imágenes de Brando) */
+    .containerduda img, 
+    .containerbeneficios img, 
+    .containernuestros img {
+        width: 80% !important;
+        height: auto !important;
+        padding: 0 !important; /* Quitamos padding-right del 10% */
+        margin: 20px auto !important;
+        max-width: 350px;
+    }
+
+    /* 5. Texto: Quitamos los márgenes del 10% que lo hacían muy estrecho */
+    .containerduda p, 
+    .containerbeneficios p, 
+    .containernuestros p {
+        font-size: 1rem !important;
+        margin: 20px !important;
+        text-align: center !important;
+    }
+
+    /* Centramos títulos y links */
+    .column66 a, .column66 b {
+        padding-left: 0 !important;
+        text-align: center !important;
+        display: block !important;
     }
 }
 
@@ -102,28 +902,6 @@ button{
 }
 
 
-@media (max-width: 720px) {
-    .layout {
-        flex-direction: column;
-        padding: 1rem 0.5rem;
-    }
-
-    .column25,
-    .column33,
-    .column50,
-    .column66,
-    .column75,
-    .column100 {
-        width: 100%;
-        padding: 0.5rem 1rem;
-    }
-
-    .terms {
-        font-size: 0.9rem;
-        display: flex;
-        flex-direction: row;
-    }
-}
 
 .flex-column-center {
     display: flex;
@@ -2522,7 +3300,6 @@ button:hover {
     font-size: 2rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 
 
